@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfie Proxy</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: system-ui, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 5px;
+            color: #ff4757;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+        }
+        p { color: #a4b0be; margin-bottom: 30px; }
+        .search-box { display: flex; width: 80%; max-width: 600px; }
+        input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: 2px solid #2f3542;
+            border-radius: 25px 0 0 25px;
+            background-color: #2f3542;
+            color: white;
+            outline: none;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            background-color: #ff4757;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 25px 25px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐺 WOLFIE</h1>
+    <p>Enter a URL to browse freely</p>
+    <div class="search-box">
+        <input type="text" id="url-input" placeholder="https://google.com" onkeydown="if(event.key==='Enter') launchProxy()">
+        <button onclick="launchProxy()">Go</button>
+    </div>
+    <script>
+        function launchProxy() {
+            let url = document.getElementById('url-input').value.trim();
+            if (!url) return;
+            if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+            window.location.href = '/proxy/' + url;
+        }
+    </script>
+</body>
+</html>
