@@ -1,0 +1,11 @@
+{
+  "name": "wolfie",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "unblocker": "^2.3.1"
+  }
+}
